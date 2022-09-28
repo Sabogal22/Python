@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block titulo %} Motos {% endblock %}
+
+{% block contenido %}
+
+<div class="card">
+    <div class="card-header">
+        <label>Mira tu moto favorita</label>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Motos</h4>
+
+        <div class="table-responsive">
+            <table class="table table-Secondary">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Marca</th>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>
+                            <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar</a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for motos in motos %}
+                    <tr>
+                        <td>{{ motos.id }}</td>
+                        <td>{{ motos.marca }}</td>
+                        <td>
+                            <img src="{{ motos.imagen.url}}" height="100">
+                        </td>
+                        <td>{{ motos.nombre }}</td>
+                        <td><a name="" id="" class="btn btn-warning" href="{% url 'editar' motos.id %}" role="button">Editar</a>
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' motos.id %}" role="button">Borrar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block titulo %} Editar Moto {% endblock %}
+
+{% block contenido %}
+
+<div class="card">
+    <div class="card-header">
+        Editar Moto
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de la Moto</h4>
+        {% include 'motos/form.html' %}
+    </div>
+</div>
+
+{% endblock %}
